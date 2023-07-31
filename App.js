@@ -7,7 +7,7 @@ import {
 	Text,
 } from 'react-native';
 import { Provider } from 'react-redux';
-import { store } from './src/store';
+import { store } from './src/redux/store';
 import HomeScreen from './src/screens/HomeScreen';
 import {
 	useFonts,
@@ -21,7 +21,6 @@ import {
 	Inter_800ExtraBold,
 	Inter_900Black,
 } from '@expo-google-fonts/inter';
-import globalStyles from './src/globalStyles';
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
