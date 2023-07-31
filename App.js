@@ -1,16 +1,55 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import {
+	ActivityIndicator,
+	Platform,
+	SafeAreaView,
+	StatusBar,
+	StyleSheet,
+	Text,
+} from 'react-native';
 import { Provider } from 'react-redux';
-import { store } from './store';
+import { store } from './src/store';
+import HomeScreen from './src/screens/HomeScreen';
+import {
+	useFonts,
+	Inter_100Thin,
+	Inter_200ExtraLight,
+	Inter_300Light,
+	Inter_400Regular,
+	Inter_500Medium,
+	Inter_600SemiBold,
+	Inter_700Bold,
+	Inter_800ExtraBold,
+	Inter_900Black,
+} from '@expo-google-fonts/inter';
+import globalStyles from './src/globalStyles';
 
 export default function App() {
+	let [fontsLoaded] = useFonts({
+		Inter_100Thin,
+		Inter_200ExtraLight,
+		Inter_300Light,
+		Inter_400Regular,
+		Inter_500Medium,
+		Inter_600SemiBold,
+		Inter_700Bold,
+		Inter_800ExtraBold,
+		Inter_900Black,
+	});
+
+	const { container } = styles;
+
 	return (
-		<Provider store={store}>
-			<View style={styles.container}>
-				<Text>Open up App.js to start working on your app!</Text>
-				<StatusBar style='auto' />
-			</View>
-		</Provider>
+		<>
+			{fontsLoaded ? (
+				<Provider store={store}>
+					<SafeAreaView style={container}>
+						<HomeScreen />
+					</SafeAreaView>
+				</Provider>
+			) : (
+				<ActivityIndicator size={'large'} />
+			)}
+		</>
 	);
 }
 
@@ -18,7 +57,8 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#fff',
-		alignItems: 'center',
 		justifyContent: 'center',
+		alignItems: 'center',
+		paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
 	},
 });
