@@ -1,22 +1,24 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
 import React from 'react';
 import globalStyles from '../globalStyles';
 
-const HomeScreen = () => {
+const Home = () => {
 	const { regular, black } = globalStyles;
 	const { container, logo } = styles;
 
 	return (
-		<View style={container}>
+		<SafeAreaView style={container}>
+			<StatusBar translucent backgroundColor='#18181b' barStyle='white' />
 			<Text style={[black, logo]}>Uberr</Text>
-		</View>
+		</SafeAreaView>
 	);
 };
 
 const styles = StyleSheet.create({
 	container: {
-		height: '100%',
-		width: '100%',
+		flex: 1,
+		paddingHorizontal: 50,
+		paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
 		backgroundColor: '#18181b',
 	},
 	logo: {
@@ -26,4 +28,4 @@ const styles = StyleSheet.create({
 	},
 });
 
-export default HomeScreen;
+export default Home;
