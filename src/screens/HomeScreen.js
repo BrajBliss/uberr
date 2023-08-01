@@ -3,15 +3,27 @@ import React from 'react';
 import globalStyles from '../globalStyles';
 
 const HomeScreen = () => {
-	const { regular } = globalStyles;
+	const { regular, black } = globalStyles;
+	const { container, logo } = styles;
 
 	return (
-		<View>
-			<Text style={regular}>HomeScreen</Text>
+		<View style={container}>
+			<Text style={[black, logo]}>Uberr</Text>
 		</View>
 	);
 };
 
-export default HomeScreen;
+const styles = StyleSheet.create({
+	container: {
+		height: '100%',
+		width: '100%',
+		backgroundColor: '#18181b',
+	},
+	logo: {
+		color: '#fff',
+		alignSelf: 'center',
+		fontSize: 60,
+	},
+});
 
-const styles = StyleSheet.create({});
+export default HomeScreen;

@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import {
 	ActivityIndicator,
 	Platform,
@@ -42,6 +43,11 @@ export default function App() {
 			{fontsLoaded ? (
 				<Provider store={store}>
 					<SafeAreaView style={container}>
+						<StatusBar
+							translucent
+							backgroundColor='#18181b'
+							barStyle='white'
+						/>
 						<HomeScreen />
 					</SafeAreaView>
 				</Provider>
