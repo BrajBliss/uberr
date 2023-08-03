@@ -49,11 +49,11 @@ const Top = () => {
 					<Text style={[medium, textStyle]}>Help</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={buttonContainer}>
-					<Foundation name='credit-card' size={28} color='#fff' />
+					<Foundation name='credit-card' size={32} color='#fff' />
 					<Text style={[medium, textStyle]}>Wallet</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={buttonContainer}>
-					<AntDesign name='clockcircle' size={28} color='#fff' />
+					<AntDesign name='clockcircle' size={27} color='#fff' />
 					<Text style={[medium, textStyle]}>Trips</Text>
 				</TouchableOpacity>
 			</View>
@@ -65,6 +65,8 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		gap: 25,
+		// backgroundColor: 'orange',
+		justifyContent: 'space-around',
 	},
 	textStyle: {
 		color: '#fff',
@@ -101,12 +103,13 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	buttonContainer: {
-		height: 100,
-		width: 113,
+		height: 95,
+		width: 115,
 		backgroundColor: '#3f3f3f',
 		flexDirection: 'column',
 		alignItems: 'center',
 		justifyContent: 'space-around',
+		padding: 15,
 		borderRadius: 10,
 	},
 });
