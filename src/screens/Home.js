@@ -19,9 +19,9 @@ const Home = () => {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		paddingHorizontal: 50,
+		paddingHorizontal: 18,
 		paddingTop:
-			(Platform.OS === 'android' ? StatusBar.currentHeight : 0) + 50,
+			(Platform.OS === 'android' ? StatusBar.currentHeight : 0) + 16,
 		backgroundColor: '#18181b',
 	},
 	logo: {
