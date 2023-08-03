@@ -1,15 +1,13 @@
 import {
 	StyleSheet,
-	Text,
 	View,
 	TextInput,
 	Keyboard,
-	Button,
 	TouchableOpacity,
 	Animated,
 } from 'react-native';
 import React, { useState, useRef } from 'react';
-import globalStyles from '../globalStyles';
+import globalStyles from '../../globalStyles';
 import { Feather } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 

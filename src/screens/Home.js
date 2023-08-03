@@ -1,7 +1,7 @@
 import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
 import React from 'react';
 import globalStyles from '../globalStyles';
-import Search from '../components/Search';
+import Search from '../components/home/Search';
 
 const Home = () => {
 	const { regular, black } = globalStyles;
