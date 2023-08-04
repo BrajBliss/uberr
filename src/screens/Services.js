@@ -14,7 +14,7 @@ import { MaterialIcons } from '@expo/vector-icons';
 import EmptySpace from '../components/EmptySpace';
 
 const Services = () => {
-	const { medium, semiBold } = globalStyles;
+	const { regular, medium, semiBold } = globalStyles;
 	const {
 		container,
 		textStyle,
@@ -76,7 +76,7 @@ const Services = () => {
 								size={33}
 								color='#fff'
 							/>
-							<Text style={[optionText, textStyle, medium]}>
+							<Text style={[optionText, textStyle, regular]}>
 								Intercity
 							</Text>
 						</TouchableOpacity>
@@ -86,7 +86,7 @@ const Services = () => {
 								size={33}
 								color='#fff'
 							/>
-							<Text style={[optionText, textStyle, medium]}>
+							<Text style={[optionText, textStyle, regular]}>
 								Package
 							</Text>
 						</TouchableOpacity>
@@ -96,7 +96,7 @@ const Services = () => {
 								size={33}
 								color='#fff'
 							/>
-							<Text style={[optionText, textStyle, medium]}>
+							<Text style={[optionText, textStyle, regular]}>
 								Travel
 							</Text>
 						</TouchableOpacity>

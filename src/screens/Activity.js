@@ -12,7 +12,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import Activities from '../components/activity/Activities';
 
 const Services = () => {
-	const { medium, semiBold } = globalStyles;
+	const { semiBold } = globalStyles;
 	const {
 		container,
 		textStyle,
