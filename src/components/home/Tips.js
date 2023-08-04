@@ -71,6 +71,7 @@ const Tips = () => {
 				renderItem={renderItem}
 				keyExtractor={(item) => item.id.toString()}
 				horizontal
+				showsHorizontalScrollIndicator={false}
 			/>
 		</View>
 	);
