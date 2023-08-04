@@ -8,7 +8,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 
 const Bottom = () => {
-	const { light, medium } = globalStyles;
+	const { extraLight, medium } = globalStyles;
 	const {
 		textStyle,
 		container,
@@ -61,7 +61,7 @@ const Bottom = () => {
 				</TouchableOpacity>
 			</View>
 			<TouchableOpacity style={versionContainer}>
-				<Text style={[versionText, light]}>v4.484.10000</Text>
+				<Text style={[versionText, extraLight]}>v4.484.10000</Text>
 			</TouchableOpacity>
 		</View>
 	);
