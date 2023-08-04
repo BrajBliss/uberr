@@ -117,6 +117,7 @@ const Activities = () => {
 				data={Trips}
 				renderItem={renderItem}
 				keyExtractor={(item) => item.id.toString()}
+				showsVerticalScrollIndicator={false}
 			/>
 		</View>
 	);
