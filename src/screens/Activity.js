@@ -16,7 +16,6 @@ const Services = () => {
 	const {
 		container,
 		textStyle,
-		innerContainer,
 		titleContainer,
 		screenTitle,
 		subtitleContainer,
@@ -25,26 +24,22 @@ const Services = () => {
 
 	return (
 		<SafeAreaView style={container}>
-			<View style={innerContainer}>
-				<View style={titleContainer}>
-					<Text style={[screenTitle, semiBold, textStyle]}>
-						Activity
+			<View style={titleContainer}>
+				<Text style={[screenTitle, semiBold, textStyle]}>Activity</Text>
+				<View style={subtitleContainer}>
+					<Text style={[screenSubtitle, semiBold, textStyle]}>
+						Past
 					</Text>
-					<View style={subtitleContainer}>
-						<Text style={[screenSubtitle, semiBold, textStyle]}>
-							Past
-						</Text>
-						<TouchableOpacity>
-							<MaterialCommunityIcons
-								name='filter-outline'
-								size={27}
-								color='#fff'
-							/>
-						</TouchableOpacity>
-					</View>
+					<TouchableOpacity>
+						<MaterialCommunityIcons
+							name='filter-outline'
+							size={27}
+							color='#fff'
+						/>
+					</TouchableOpacity>
 				</View>
-				<Activities />
 			</View>
+			<Activities />
 		</SafeAreaView>
 	);
 };

@@ -13,6 +13,7 @@ const Suggestions = () => {
 		suggestionsContainer,
 		optionsContainer,
 		icon,
+		titleText,
 	} = styles;
 
 	return (
@@ -27,7 +28,7 @@ const Suggestions = () => {
 							color='#fff'
 						/>
 					</View>
-					<Text style={[textStyle, regular]}>Ride</Text>
+					<Text style={[textStyle, regular, titleText]}>Ride</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={[optionsContainer]}>
 					<View style={icon}>
@@ -37,7 +38,7 @@ const Suggestions = () => {
 							color='#fff'
 						/>
 					</View>
-					<Text style={[textStyle, regular]}>Rentals</Text>
+					<Text style={[textStyle, regular, titleText]}>Rentals</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={optionsContainer}>
 					<View style={icon}>
@@ -47,7 +48,9 @@ const Suggestions = () => {
 							color='#fff'
 						/>
 					</View>
-					<Text style={[textStyle, regular]}>Intercity</Text>
+					<Text style={[textStyle, regular, titleText]}>
+						Intercity
+					</Text>
 				</TouchableOpacity>
 				<TouchableOpacity style={optionsContainer}>
 					<View style={icon}>
@@ -57,7 +60,7 @@ const Suggestions = () => {
 							color='#fff'
 						/>
 					</View>
-					<Text style={[textStyle, regular]}>Package</Text>
+					<Text style={[textStyle, regular, titleText]}>Package</Text>
 				</TouchableOpacity>
 			</View>
 		</View>
@@ -93,6 +96,9 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		justifyContent: 'center',
 		alignItems: 'center',
+	},
+	titleText: {
+		fontSize: 13,
 	},
 });
 

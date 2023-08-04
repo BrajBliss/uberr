@@ -15,6 +15,7 @@ const Tabs = () => {
 	return (
 		<Tab.Navigator
 			screenOptions={{
+				// tabBarHideOnKeyboard: true,
 				headerShown: false,
 				tabBarStyle: {
 					backgroundColor: '#18181b',

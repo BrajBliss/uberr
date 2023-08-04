@@ -59,6 +59,22 @@ const Trips = [
 		dateTime: '28 Jun • 7:55 PM',
 		status: '₹202.00',
 	},
+	{
+		id: 7,
+		ride: 'Auto',
+		icon: <MaterialCommunityIcons name='rickshaw' size={30} color='#fff' />,
+		dest: 'Sudama Nagar',
+		dateTime: '23 Jul • 9:17 AM',
+		status: '₹0.00 • Cancelled',
+	},
+	{
+		id: 8,
+		ride: 'Bike',
+		icon: <FontAwesome name='motorcycle' size={24} color='#fff' />,
+		dest: 'Vijay Nagar',
+		dateTime: '28 Jun • 7:55 PM',
+		status: '₹202.00',
+	},
 ];
 
 const Activities = () => {
@@ -96,7 +112,7 @@ const Activities = () => {
 	);
 
 	return (
-		<View style={container}>
+		<View style={{ flex: 1 }}>
 			<FlatList
 				data={Trips}
 				renderItem={renderItem}
@@ -108,10 +124,10 @@ const Activities = () => {
 
 const styles = StyleSheet.create({
 	container: {
+		paddingVertical: 10,
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		alignItems: 'center',
-		paddingVertical: 10,
 	},
 	textStyle: {
 		color: '#fff',

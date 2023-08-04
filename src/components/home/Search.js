@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
 		justifyContent: 'space-between',
 	},
 	textInputContainer: {
-		width: '90%',
+		width: '93%',
 		// flex: 1,
 		// backgroundColor: 'red',
 	},
