@@ -3,6 +3,7 @@ import Home from '../screens/Home';
 import Services from '../screens/Services';
 import Activity from '../screens/Activity';
 import Account from '../screens/Account';
+import Ride from '../screens/Ride';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Foundation } from '@expo/vector-icons';
 import { Fontisto } from '@expo/vector-icons';
@@ -47,7 +48,7 @@ const Tabs = () => {
 			/>
 			<Tab.Screen
 				name='Services'
-				component={Services}
+				component={Ride}
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<Fontisto
