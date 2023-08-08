@@ -20,7 +20,7 @@ const Ride = () => {
 				<Image
 					style={img}
 					source={{
-						uri: 'https://i2-prod.mylondon.news/article16106961.ece/ALTERNATES/s810/2_Uber-pink-cars.jpg',
+						uri: 'https://s.wsj.net/public/resources/images/BN-XR453_201802_M_20180228165619.gif',
 					}}
 				/>
 			</View>
@@ -44,7 +44,6 @@ const styles = StyleSheet.create({
 	},
 	img: {
 		flex: 1,
-		backgroundColor: 'pink',
 		resizeMode: 'cover',
 	},
 	bottom: {
