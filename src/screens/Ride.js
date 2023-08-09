@@ -11,6 +11,10 @@ import {
 } from 'react-native';
 import React from 'react';
 import globalStyles from '../globalStyles';
+import { FontAwesome5 } from '@expo/vector-icons';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons } from '@expo/vector-icons';
+import { FontAwesome } from '@expo/vector-icons';
 
 const Ride = () => {
 	const { light, regular, medium } = globalStyles;
@@ -20,10 +24,13 @@ const Ride = () => {
 		upper,
 		img,
 		bottom,
+		noticeContainer,
 		notice,
-		rides,
+		rideContainer,
+		deets,
 		payment,
-		book,
+		right,
+		confirm,
 	} = styles;
 
 	return (
@@ -37,17 +44,107 @@ const Ride = () => {
 				/>
 			</View>
 			<View style={bottom}>
-				<Text style={[textStyle, light, notice]}>
-					Fares are higher due to increased demand
-				</Text>
-				<ScrollView style={rides}>
-					<Text style={[regular, textStyle]}>OPTIONS</Text>
+				<View style={noticeContainer}>
+					<Text style={[textStyle, light, notice]}>
+						Fares are higher due to increased demand
+					</Text>
+				</View>
+				<ScrollView
+					contentContainerStyle={{
+						flex: 1,
+						justifyContent: 'space-around',
+					}}>
+					<TouchableOpacity style={rideContainer}>
+						<Ionicons
+							name='car-sport-sharp'
+							size={45}
+							color='#fff'
+						/>
+						<View style={deets}>
+							<Text style={[medium, textStyle, { fontSize: 18 }]}>
+								Uber Go
+							</Text>
+							<Text style={[light, textStyle]}>
+								5:41am • 5 min away
+							</Text>
+						</View>
+						<Text style={[regular, textStyle, { fontSize: 15 }]}>
+							₹341.61
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={rideContainer}>
+						<MaterialCommunityIcons
+							name='rickshaw'
+							size={50}
+							color='#fff'
+						/>
+						<View style={deets}>
+							<Text style={[medium, textStyle, { fontSize: 18 }]}>
+								Uber Auto
+							</Text>
+							<Text style={[light, textStyle]}>
+								5:39am • 3 min away
+							</Text>
+						</View>
+						<Text style={[regular, textStyle, { fontSize: 15 }]}>
+							₹451.30
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={rideContainer}>
+						<MaterialCommunityIcons
+							name='car-limousine'
+							size={50}
+							color='#fff'
+						/>
+						<View style={deets}>
+							<Text style={[medium, textStyle, { fontSize: 18 }]}>
+								Uber Premier
+							</Text>
+							<Text style={[light, textStyle]}>
+								5:35am • 2 min away
+							</Text>
+						</View>
+						<Text style={[regular, textStyle, { fontSize: 15 }]}>
+							₹374.29
+						</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={rideContainer}>
+						<FontAwesome name='motorcycle' size={40} color='#fff' />
+						<View style={deets}>
+							<Text style={[medium, textStyle, { fontSize: 18 }]}>
+								Uber Moto
+							</Text>
+							<Text style={[light, textStyle]}>
+								5:30am • 1 min away
+							</Text>
+						</View>
+						<Text style={[regular, textStyle, { fontSize: 15 }]}>
+							₹311.65
+						</Text>
+					</TouchableOpacity>
 				</ScrollView>
 				<TouchableOpacity style={payment}>
-					<Text style={[textStyle, regular]}>CASH</Text>
+					<View style={right}>
+						<FontAwesome5
+							name='money-bill'
+							size={24}
+							color='#fff'
+						/>
+						<Text
+							style={[{ color: '#fff', fontSize: 15 }, regular]}>
+							Cash
+						</Text>
+					</View>
+					<MaterialCommunityIcons
+						name='arrow-right'
+						size={24}
+						color='#fff'
+					/>
 				</TouchableOpacity>
-				<TouchableOpacity style={book}>
-					<Text style={[textStyle, regular]}>BOOK</Text>
+				<TouchableOpacity style={confirm}>
+					<Text style={[textStyle, medium, { fontSize: 17 }]}>
+						Confirm Booking
+					</Text>
 				</TouchableOpacity>
 			</View>
 		</SafeAreaView>
@@ -63,29 +160,48 @@ const styles = StyleSheet.create({
 		color: '#fff',
 	},
 	upper: {
-		flex: 1.5,
+		flex: 1.6,
 	},
 	img: {
 		flex: 1,
 		resizeMode: 'cover',
 	},
 	bottom: {
-		flex: 2.5,
+		flex: 2.4,
 		paddingHorizontal: 18,
 		// paddingTop:
 		// 	(Platform.OS === 'android' ? StatusBar.currentHeight : 0) + 25,
 	},
+	noticeContainer: {
+		flex: 0,
+		alignItems: 'center',
+	},
 	notice: {
-		backgroundColor: 'indianred',
+		padding: 10,
 	},
-	rides: {
-		backgroundColor: 'gray',
+	rideContainer: {
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
 	},
+	deets: {},
 	payment: {
-		backgroundColor: 'red',
+		flexDirection: 'row',
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		marginVertical: 10,
 	},
-	book: {
-		backgroundColor: 'green',
+	right: {
+		flexDirection: 'row',
+		alignItems: 'center',
+		gap: 20,
+	},
+	confirm: {
+		backgroundColor: '#333',
+		padding: 15,
+		marginVertical: 10,
+		alignItems: 'center',
+		borderRadius: 10,
 	},
 });
 
