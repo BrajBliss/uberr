@@ -3,6 +3,7 @@ import React from 'react';
 import globalStyles from '../../globalStyles';
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
 const Suggestions = () => {
 	const { regular, semiBold } = globalStyles;
@@ -16,11 +17,15 @@ const Suggestions = () => {
 		titleText,
 	} = styles;
 
+	const navigation = useNavigation();
+
 	return (
 		<View style={container}>
 			<Text style={[screenTitle, semiBold, textStyle]}>Suggestions</Text>
 			<View style={suggestionsContainer}>
-				<TouchableOpacity style={[optionsContainer]}>
+				<TouchableOpacity
+					style={[optionsContainer]}
+					onPress={() => navigation.navigate('Ride')}>
 					<View style={icon}>
 						<Ionicons
 							name='car-sport-sharp'
@@ -30,7 +35,9 @@ const Suggestions = () => {
 					</View>
 					<Text style={[textStyle, regular, titleText]}>Ride</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={[optionsContainer]}>
+				<TouchableOpacity
+					style={[optionsContainer]}
+					onPress={() => navigation.navigate('Ride')}>
 					<View style={icon}>
 						<MaterialCommunityIcons
 							name='car-clock'
@@ -40,7 +47,9 @@ const Suggestions = () => {
 					</View>
 					<Text style={[textStyle, regular, titleText]}>Rentals</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={optionsContainer}>
+				<TouchableOpacity
+					style={optionsContainer}
+					onPress={() => navigation.navigate('Ride')}>
 					<View style={icon}>
 						<MaterialCommunityIcons
 							name='car-limousine'
@@ -52,7 +61,9 @@ const Suggestions = () => {
 						Intercity
 					</Text>
 				</TouchableOpacity>
-				<TouchableOpacity style={optionsContainer}>
+				<TouchableOpacity
+					style={optionsContainer}
+					onPress={() => navigation.navigate('Ride')}>
 					<View style={icon}>
 						<MaterialCommunityIcons
 							name='package-variant'

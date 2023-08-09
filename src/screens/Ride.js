@@ -16,7 +16,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
-const Ride = () => {
+const Ride = ({ navigation }) => {
 	const { light, regular, medium } = globalStyles;
 	const {
 		container,
@@ -40,6 +40,7 @@ const Ride = () => {
 				backgroundColor='transparent'
 				barStyle='dark-content'
 			/>
+
 			<View style={upper}>
 				<Image
 					style={img}

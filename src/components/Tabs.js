@@ -48,7 +48,7 @@ const Tabs = () => {
 			/>
 			<Tab.Screen
 				name='Services'
-				component={Ride}
+				component={Services}
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<Fontisto

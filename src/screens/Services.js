@@ -12,6 +12,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons';
 import EmptySpace from '../components/EmptySpace';
+import { useNavigation } from '@react-navigation/native';
 
 const Services = () => {
 	const { regular, medium, semiBold } = globalStyles;
@@ -31,6 +32,8 @@ const Services = () => {
 		optionText,
 	} = styles;
 
+	const navigation = useNavigation();
+
 	return (
 		<SafeAreaView style={container}>
 			<View style={innerContainer}>
@@ -45,7 +48,8 @@ const Services = () => {
 				<View style={servicesOptions}>
 					<View style={upper}>
 						<TouchableOpacity
-							style={[optionsContainer, upperOptionContainer]}>
+							style={[optionsContainer, upperOptionContainer]}
+							onPress={() => navigation.navigate('Ride')}>
 							<Text style={[optionText, textStyle, medium]}>
 								Ride
 							</Text>
@@ -57,7 +61,8 @@ const Services = () => {
 							/>
 						</TouchableOpacity>
 						<TouchableOpacity
-							style={[optionsContainer, upperOptionContainer]}>
+							style={[optionsContainer, upperOptionContainer]}
+							onPress={() => navigation.navigate('Ride')}>
 							<Text style={[optionText, textStyle, medium]}>
 								Rentals
 							</Text>
@@ -70,7 +75,9 @@ const Services = () => {
 						</TouchableOpacity>
 					</View>
 					<View style={lower}>
-						<TouchableOpacity style={optionsContainer}>
+						<TouchableOpacity
+							style={optionsContainer}
+							onPress={() => navigation.navigate('Ride')}>
 							<MaterialCommunityIcons
 								name='car-limousine'
 								size={33}
@@ -80,7 +87,9 @@ const Services = () => {
 								Intercity
 							</Text>
 						</TouchableOpacity>
-						<TouchableOpacity style={optionsContainer}>
+						<TouchableOpacity
+							style={optionsContainer}
+							onPress={() => navigation.navigate('Ride')}>
 							<MaterialCommunityIcons
 								name='package-variant'
 								size={33}
@@ -90,7 +99,9 @@ const Services = () => {
 								Package
 							</Text>
 						</TouchableOpacity>
-						<TouchableOpacity style={optionsContainer}>
+						<TouchableOpacity
+							style={optionsContainer}
+							onPress={() => navigation.navigate('Ride')}>
 							<MaterialIcons
 								name='luggage'
 								size={33}
