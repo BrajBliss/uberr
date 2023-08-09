@@ -1,5 +1,4 @@
 import {
-	ImageBackground,
 	Image,
 	SafeAreaView,
 	StatusBar,
@@ -60,7 +59,9 @@ const Ride = ({ navigation }) => {
 						flex: 1,
 						justifyContent: 'space-around',
 					}}>
-					<TouchableOpacity style={rideContainer}>
+					<TouchableOpacity
+						style={rideContainer}
+						onPress={() => navigation.goBack()}>
 						<Ionicons
 							name='car-sport-sharp'
 							size={45}
@@ -78,7 +79,9 @@ const Ride = ({ navigation }) => {
 							₹341.61
 						</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={rideContainer}>
+					<TouchableOpacity
+						style={rideContainer}
+						onPress={() => navigation.goBack()}>
 						<MaterialCommunityIcons
 							name='rickshaw'
 							size={50}
@@ -96,7 +99,9 @@ const Ride = ({ navigation }) => {
 							₹451.30
 						</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={rideContainer}>
+					<TouchableOpacity
+						style={rideContainer}
+						onPress={() => navigation.goBack()}>
 						<MaterialCommunityIcons
 							name='car-limousine'
 							size={50}
@@ -114,7 +119,9 @@ const Ride = ({ navigation }) => {
 							₹374.29
 						</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={rideContainer}>
+					<TouchableOpacity
+						style={rideContainer}
+						onPress={() => navigation.goBack()}>
 						<FontAwesome name='motorcycle' size={40} color='#fff' />
 						<View style={deets}>
 							<Text style={[medium, textStyle, { fontSize: 18 }]}>
@@ -129,7 +136,9 @@ const Ride = ({ navigation }) => {
 						</Text>
 					</TouchableOpacity>
 				</ScrollView>
-				<TouchableOpacity style={payment}>
+				<TouchableOpacity
+					style={payment}
+					onPress={() => navigation.goBack()}>
 					<View style={right}>
 						<FontAwesome5
 							name='money-bill'
@@ -147,7 +156,9 @@ const Ride = ({ navigation }) => {
 						color='#fff'
 					/>
 				</TouchableOpacity>
-				<TouchableOpacity style={confirm}>
+				<TouchableOpacity
+					style={confirm}
+					onPress={() => navigation.goBack()}>
 					<Text style={[textStyle, medium, { fontSize: 17 }]}>
 						Confirm Booking
 					</Text>
