@@ -35,6 +35,11 @@ const Ride = () => {
 
 	return (
 		<SafeAreaView style={container}>
+			<StatusBar
+				translucent
+				backgroundColor='transparent'
+				barStyle='dark-content'
+			/>
 			<View style={upper}>
 				<Image
 					style={img}
@@ -155,6 +160,7 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		backgroundColor: '#18181b',
+		// paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0,
 	},
 	textStyle: {
 		color: '#fff',
@@ -169,8 +175,6 @@ const styles = StyleSheet.create({
 	bottom: {
 		flex: 2.4,
 		paddingHorizontal: 18,
-		// paddingTop:
-		// 	(Platform.OS === 'android' ? StatusBar.currentHeight : 0) + 25,
 	},
 	noticeContainer: {
 		flex: 0,
