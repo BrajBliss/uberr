@@ -7,16 +7,58 @@ import {
 	View,
 	ScrollView,
 	TouchableOpacity,
+	FlatList,
 } from 'react-native';
-import React from 'react';
+import React, { cloneElement, useState } from 'react';
 import globalStyles from '../globalStyles';
 import { FontAwesome5 } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { Ionicons } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
 
+const RideOptions = [
+	{
+		id: 1,
+		icon: <Ionicons name='car-sport-sharp' size={45} color='#fff' />,
+		title: 'Uber Go',
+		time: '5:41am • 5 min away',
+		cost: '₹341.61',
+		desc: 'Affordable, compact rides',
+	},
+	{
+		id: 2,
+		icon: <MaterialCommunityIcons name='rickshaw' size={50} color='#fff' />,
+		title: 'Uber Auto',
+		time: '5:39am • 3 min away',
+		cost: '₹451.30',
+		desc: 'No bargaining, doorstep pick-up',
+	},
+	{
+		id: 3,
+		icon: (
+			<MaterialCommunityIcons
+				name='car-limousine'
+				size={50}
+				color='#fff'
+			/>
+		),
+		title: 'Uber Premier',
+		time: '5:35am • 2 min away',
+		cost: '₹374.29',
+		desc: 'Comfortable sedans, top-quality drivers',
+	},
+	{
+		id: 4,
+		icon: <FontAwesome name='motorcycle' size={40} color='#fff' />,
+		title: 'Uber Moto',
+		time: '5:30am • 1 min away',
+		cost: '₹311.65',
+		desc: 'Affordable, motorcycle rides',
+	},
+];
+
 const Ride = ({ navigation }) => {
-	const { light, regular, medium } = globalStyles;
+	const { light, regular, medium, bold } = globalStyles;
 	const {
 		container,
 		textStyle,
@@ -31,6 +73,79 @@ const Ride = ({ navigation }) => {
 		right,
 		confirm,
 	} = styles;
+
+	const [clicked, setClicked] = useState(false);
+	const [selectedItem, setSelectedItem] = useState(null);
+
+	const handleClick = (item) => {
+		setSelectedItem(item);
+		setClicked(true);
+	};
+
+	const renderItem = ({ item }) => (
+		<TouchableOpacity
+			style={rideContainer}
+			onPress={() => handleClick({ item })}>
+			{item.icon}
+			<View style={deets}>
+				<Text style={[medium, textStyle, { fontSize: 18 }]}>
+					{item.title}
+				</Text>
+				<Text style={[light, textStyle]}>{item.time}</Text>
+			</View>
+			<Text style={[regular, textStyle, { fontSize: 15 }]}>
+				{item.cost}
+			</Text>
+		</TouchableOpacity>
+	);
+
+	const rideCard = ({ item }) => {
+		return (
+			<View style={{ flex: 1 }}>
+				<TouchableOpacity onPress={() => setClicked(false)}>
+					<MaterialCommunityIcons
+						name='arrow-left'
+						size={30}
+						color='#fff'
+					/>
+				</TouchableOpacity>
+				<View
+					style={{
+						flex: 1,
+						marginVertical: 10,
+						justifyContent: 'space-around',
+						alignItems: 'center',
+					}}>
+					{cloneElement(item.icon, { size: 100 })}
+					<View
+						style={{
+							flexDirection: 'row',
+							justifyContent: 'space-between',
+							// alignItems: 'center',
+							width: '100%',
+						}}>
+						<View>
+							<Text style={[textStyle, bold, { fontSize: 27 }]}>
+								{item.title}
+							</Text>
+							<Text
+								style={[textStyle, regular, { fontSize: 15 }]}>
+								{item.time}
+							</Text>
+							<Text style={[textStyle, light, { fontSize: 13 }]}>
+								{item.desc}
+							</Text>
+						</View>
+						<View>
+							<Text style={[textStyle, bold, { fontSize: 27 }]}>
+								{item.cost}
+							</Text>
+						</View>
+					</View>
+				</View>
+			</View>
+		);
+	};
 
 	return (
 		<SafeAreaView style={container}>
@@ -54,88 +169,21 @@ const Ride = ({ navigation }) => {
 						Fares are higher due to increased demand
 					</Text>
 				</View>
-				<ScrollView
-					contentContainerStyle={{
-						flex: 1,
-						justifyContent: 'space-around',
-					}}>
-					<TouchableOpacity
-						style={rideContainer}
-						onPress={() => navigation.goBack()}>
-						<Ionicons
-							name='car-sport-sharp'
-							size={45}
-							color='#fff'
-						/>
-						<View style={deets}>
-							<Text style={[medium, textStyle, { fontSize: 18 }]}>
-								Uber Go
-							</Text>
-							<Text style={[light, textStyle]}>
-								5:41am • 5 min away
-							</Text>
-						</View>
-						<Text style={[regular, textStyle, { fontSize: 15 }]}>
-							₹341.61
-						</Text>
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={rideContainer}
-						onPress={() => navigation.goBack()}>
-						<MaterialCommunityIcons
-							name='rickshaw'
-							size={50}
-							color='#fff'
-						/>
-						<View style={deets}>
-							<Text style={[medium, textStyle, { fontSize: 18 }]}>
-								Uber Auto
-							</Text>
-							<Text style={[light, textStyle]}>
-								5:39am • 3 min away
-							</Text>
-						</View>
-						<Text style={[regular, textStyle, { fontSize: 15 }]}>
-							₹451.30
-						</Text>
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={rideContainer}
-						onPress={() => navigation.goBack()}>
-						<MaterialCommunityIcons
-							name='car-limousine'
-							size={50}
-							color='#fff'
-						/>
-						<View style={deets}>
-							<Text style={[medium, textStyle, { fontSize: 18 }]}>
-								Uber Premier
-							</Text>
-							<Text style={[light, textStyle]}>
-								5:35am • 2 min away
-							</Text>
-						</View>
-						<Text style={[regular, textStyle, { fontSize: 15 }]}>
-							₹374.29
-						</Text>
-					</TouchableOpacity>
-					<TouchableOpacity
-						style={rideContainer}
-						onPress={() => navigation.goBack()}>
-						<FontAwesome name='motorcycle' size={40} color='#fff' />
-						<View style={deets}>
-							<Text style={[medium, textStyle, { fontSize: 18 }]}>
-								Uber Moto
-							</Text>
-							<Text style={[light, textStyle]}>
-								5:30am • 1 min away
-							</Text>
-						</View>
-						<Text style={[regular, textStyle, { fontSize: 15 }]}>
-							₹311.65
-						</Text>
-					</TouchableOpacity>
-				</ScrollView>
+				{clicked ? (
+					rideCard(selectedItem)
+				) : (
+					<FlatList
+						data={RideOptions}
+						renderItem={renderItem}
+						keyExtractor={(item) => item.id.toString()}
+						showsVerticalScrollIndicator={false}
+						contentContainerStyle={{
+							justifyContent: 'space-around',
+							flex: 1,
+						}}
+					/>
+				)}
+
 				<TouchableOpacity
 					style={payment}
 					onPress={() => navigation.goBack()}>
