@@ -1,9 +1,16 @@
-import { SafeAreaView, StatusBar, StyleSheet, Text } from 'react-native';
+import {
+	SafeAreaView,
+	ScrollView,
+	StatusBar,
+	StyleSheet,
+	Text,
+} from 'react-native';
 import React from 'react';
 import globalStyles from '../globalStyles';
 import Search from '../components/home/Search';
 import Suggestions from '../components/home/Suggestions';
 import Tips from '../components/home/Tips';
+import Carousel from '../components/home/Carousel';
 
 const Home = () => {
 	const { regular, black } = globalStyles;
@@ -11,11 +18,18 @@ const Home = () => {
 
 	return (
 		<SafeAreaView style={container}>
-			<StatusBar translucent backgroundColor='#18181b' barStyle='white' />
-			<Text style={[black, logo]}>Uberr</Text>
-			<Search />
-			<Suggestions />
-			<Tips />
+			<ScrollView>
+				<StatusBar
+					translucent
+					backgroundColor='#18181b'
+					barStyle='white'
+				/>
+				<Text style={[black, logo]}>Uberr</Text>
+				<Search />
+				<Suggestions />
+				<Tips />
+				<Carousel />
+			</ScrollView>
 		</SafeAreaView>
 	);
 };
@@ -25,7 +39,7 @@ const styles = StyleSheet.create({
 		flex: 1,
 		paddingHorizontal: 18,
 		paddingTop:
-			(Platform.OS === 'android' ? StatusBar.currentHeight : 0) + 25,
+			(Platform.OS === 'android' ? StatusBar.currentHeight : 0) + 20,
 		backgroundColor: '#18181b',
 	},
 	logo: {
