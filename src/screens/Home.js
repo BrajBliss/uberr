@@ -18,7 +18,7 @@ const Home = () => {
 
 	return (
 		<SafeAreaView style={container}>
-			<ScrollView>
+			<ScrollView showsVerticalScrollIndicator={false}>
 				<StatusBar
 					translucent
 					backgroundColor='#18181b'
@@ -29,6 +29,7 @@ const Home = () => {
 				<Suggestions />
 				<Tips />
 				<Carousel />
+				<Tips />
 			</ScrollView>
 		</SafeAreaView>
 	);
