@@ -4,5 +4,8 @@ Please note that some ISPs might block access to a few GitHub domains. In that c
 1. Clone
 2. Run `npm i`
 3. Replace some assets with your own files. The only local assets are the image files used inside the OFFERS component.
+# Test on your Android or iOS with the Expo Go App
+- Android: `exp://u.expo.dev/update/a4253810-52cc-4741-ac17-80f2b113243c`
+- iOS: `exp://u.expo.dev/update/2e17e539-9fad-4a48-aae4-ab5ab353cade`
 # Demo
 https://github.com/vrndavn/uberr/assets/50140643/cacd358a-258b-46d5-b909-19b5fa33dcc8
