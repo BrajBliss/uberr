@@ -14,6 +14,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './src/components/Tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Ride from './src/screens/Ride';
+import { Provider } from 'react-redux';
+import { store } from './store';
 
 export default function App() {
 	let [fontsLoaded] = useFonts({
@@ -32,25 +34,27 @@ export default function App() {
 
 	return (
 		fontsLoaded && (
-			<NavigationContainer>
-				<Stack.Navigator>
-					<Stack.Screen
-						name='Tabs'
-						component={Tabs}
-						options={{
-							headerShown: false,
-						}}
-					/>
-					<Stack.Screen
-						name='Ride'
-						component={Ride}
-						options={{
-							headerShown: false,
-						}}
-					/>
-					{/* <Tabs /> */}
-				</Stack.Navigator>
-			</NavigationContainer>
+			<Provider store={store}>
+				<NavigationContainer>
+					<Stack.Navigator>
+						<Stack.Screen
+							name='Tabs'
+							component={Tabs}
+							options={{
+								headerShown: false,
+							}}
+						/>
+						<Stack.Screen
+							name='Ride'
+							component={Ride}
+							options={{
+								headerShown: false,
+							}}
+						/>
+						{/* <Tabs /> */}
+					</Stack.Navigator>
+				</NavigationContainer>
+			</Provider>
 		)
 	);
 }
